@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val nome: String = edNome.text.toString()
         val numero = edNumero.text.toString()
         val email = edEmail.text.toString()
-        val danadinha: Danadinha = Danadinha(nome = nome,numero = numero, email = email)
+        val danadinha = Danadinha(nome = nome,numero = numero, email = email)
         val intent = Intent(this, Lista::class.java)
         if (nome.isNotEmpty()||numero.isNotEmpty()){
             intent.putExtra("nome", nome)
@@ -33,6 +33,7 @@ class MainActivity : AppCompatActivity() {
             if (!email.isNullOrEmpty()){
                 intent.putExtra("Email", email)
             }
+            Danadinha.add(danadinha)
             startActivity(intent)
         } else {
             Toast.makeText(this,"O nome e o numero não podem ser vazios",Toast.LENGTH_SHORT)

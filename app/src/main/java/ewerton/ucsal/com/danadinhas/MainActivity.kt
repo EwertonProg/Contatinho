@@ -9,9 +9,9 @@ import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
 
-    var edNome: EditText? = null
-    var edNumero: EditText? = null
-    var edEmail: EditText? = null
+    lateinit var edNome: EditText
+    lateinit var edNumero: EditText
+    lateinit var edEmail: EditText
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,9 +22,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun cadastrar(view: View){
-        val nome: String = edNome!!.text.toString()
-        val numero = edNumero!!.text.toString()
-        val email = edEmail!!.text.toString()
+        val nome: String = edNome.text.toString()
+        val numero = edNumero.text.toString()
+        val email = edEmail.text.toString()
         val danadinha: Danadinha = Danadinha(nome = nome,numero = numero, email = email)
         val intent = Intent(this, Lista::class.java)
         if (nome.isNotEmpty()||numero.isNotEmpty()){

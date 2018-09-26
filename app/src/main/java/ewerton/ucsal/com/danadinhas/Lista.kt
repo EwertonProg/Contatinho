@@ -1,9 +1,11 @@
 package ewerton.ucsal.com.danadinhas
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.View
 
 class Lista : AppCompatActivity() {
     lateinit var rv : RecyclerView
@@ -19,6 +21,7 @@ class Lista : AppCompatActivity() {
         rv = findViewById(R.id.recyclerView)
         danadinhas = Danadinha.danadinhas
 
+
         vm = LinearLayoutManager(this)
         va = MeuAdapter(danadinhas, this)
 
@@ -27,5 +30,10 @@ class Lista : AppCompatActivity() {
 
         // Definindo o Adapter do recycleView
         rv.adapter = va
+    }
+
+    fun add(view:View){
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
     }
 }
